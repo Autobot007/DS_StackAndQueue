@@ -22,7 +22,7 @@ namespace DS_Stack_Queue
             }
             else
             {
-                node.next= this.top;
+                node.next = this.top;
             }
             this.top = node;
             Console.WriteLine("{0} pushed to stack", value);
@@ -30,10 +30,37 @@ namespace DS_Stack_Queue
         public void Display()
         {
             Node temp = this.top;
-            while(temp != null)
+            while (temp != null)
             {
-                Console.Write(temp.data+"   ");
+                Console.Write(temp.data + "   ");
                 temp = temp.next;
+            }
+        }
+        public void Peek()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is Empty");
+            }
+            Console.WriteLine("{0} is in top of the stack", this.top.data);
+        }
+        public void Pop()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty,Deletion is not possible");
+                return;
+
+            }
+            Console.WriteLine("Value is popped is {0}", this.top.data);
+            this.top = this.top.next;
+        }
+        public void IsEmpty()
+        {
+            while (this.top != null)
+            {
+                Peek();
+                Pop();
             }
         }
     }
